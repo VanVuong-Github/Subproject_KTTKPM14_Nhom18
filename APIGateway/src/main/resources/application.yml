@@ -1,5 +1,5 @@
 server:
-  port: 9191
+  port: 9091
 
 spring:
   application:
@@ -12,10 +12,14 @@ spring:
           uri: lb://USER-SERVICE
           predicates:
             - Path=/users/**
-        - id: ORDER-SERVICE
+        - id: CART-SERVICE
           uri: lb://CART-SERVICE
           predicates:
-            - Path=/carts/**
+            - Path=/cart/**
+        - id: AUTH-SERVICE
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth/**
 
 eureka:
   client:
