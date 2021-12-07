@@ -25,4 +25,6 @@ public class Cart {
 	private int soLuong;
 	
 	private String thongTin;
+
+	private Long userId;
 }

@@ -36,8 +36,8 @@ public class UserController {
 //        return userService.getUserWithCart(id);
 //    }
     
-    @GetMapping("/cart")
-    public ResponseTemplateVO getUserWithCartbyTK(@RequestParam String taiKhoan){
-        return userService.getUserWithCartbyTK(taiKhoan);
+    @GetMapping("/{id}")
+    public ResponseTemplateVO getUserWithCartbyTK(@PathVariable("id") Long id){
+        return userService.getUserWithCartbyId(id);
     }
 }

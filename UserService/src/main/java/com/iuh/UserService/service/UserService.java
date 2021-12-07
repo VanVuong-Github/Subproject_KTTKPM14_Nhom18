@@ -3,6 +3,7 @@ package com.iuh.UserService.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -33,35 +34,33 @@ public class UserService {
 	public List<User> findAllUsers() {
 		return userRepository.findAll();
 	}
+/*
+   @Retry(name = "basic")
+	public ResponseTemplateVO getUserWithCart(Long userId) {
+        ResponseTemplateVO vo = new ResponseTemplateVO();
+        User user = userRepository.findById(userId).get();
+        vo.setUser(user);
+        Cart cart = restTemplate.getForObject("http://localhost:8000/cart/"
+                                + user.getCartId(),
+                                Cart.class);
 
-//    @Retry(name = "basic")
-//	public ResponseTemplateVO getUserWithCart(Long userId) {
-//        ResponseTemplateVO vo = new ResponseTemplateVO();
-//        User user = userRepository.findById(userId).get();
-//        vo.setUser(user);
-//        Cart cart = restTemplate.getForObject("http://localhost:8000/cart/"
-//                                + user.getCartId(),
-//                                Cart.class);
-//
-//        vo.setCart(cart);
-//        return vo;
-//    }
+        vo.setCart(cart);
+        return vo;
+    }
+*/
 
 	@Retry(name = "basic")
-	public ResponseTemplateVO getUserWithCartbyTK(String taiKhoan) {
-		System.out.println(taiKhoan);
-		ResponseTemplateVO vo = new ResponseTemplateVO();
-		List<User> users = userRepository.findByTaiKhoan(taiKhoan);
-		System.out.println(users);
-		List<Cart> carts = new ArrayList<>();
-		// vo.setUser(user);
-		for (User i : users) {
-			Cart cart = restTemplate.getForObject("http://localhost:8000/cart/" + i.getCartId(), Cart.class);
+	@RateLimiter(name="basicExample")
+	public ResponseTemplateVO getUserWithCartbyId(Long id) {
 
-			carts.add(cart);
-		}
-		System.out.println(carts);
-		vo.setCart(carts);
+		ResponseTemplateVO vo = new ResponseTemplateVO();
+		User user = userRepository.findById(id).get();
+		List<Cart> carts = new ArrayList<>();
+		vo.setUser(user);
+		List<Cart> listcart =  restTemplate.getForObject("http://localhost:8000/cart/user/" + user.getUserId(), List.class);
+		vo.setCart(listcart );
 		return vo;
 	}
+
+
 }

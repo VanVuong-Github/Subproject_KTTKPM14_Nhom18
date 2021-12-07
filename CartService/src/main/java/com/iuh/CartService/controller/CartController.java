@@ -23,8 +23,8 @@ public class CartController {
 	Cart saveCart(@RequestBody Cart cart) {
         return cartService.saveCart(cart);
     }
-    
-	@GetMapping("/{id}")
+
+    @GetMapping("/{id}")
     Cart findCart(@PathVariable("id") Long id){
         return cartService.findCart(id);
     }
@@ -32,5 +32,10 @@ public class CartController {
 	@GetMapping("/")
     List<Cart> findAllCarts(){
     	return cartService.findAllCarts();
+    }
+
+    @GetMapping("/user/{id}")
+    List<Cart> findAllCarts(@PathVariable("id") Long id){
+        return cartService.findByUserId(id);
     }
 }
