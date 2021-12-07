@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.iuh.UserService.entity.User;
@@ -30,8 +31,13 @@ public class UserController {
         return userService.findAllUsers();
     }
     
-    @GetMapping("/{id}")
-    public ResponseTemplateVO getUserWithCart(@PathVariable("id") Long id){
-        return userService.getUserWithCart(id);
+//    @GetMapping("/{id}")
+//    public ResponseTemplateVO getUserWithCart(@PathVariable("id") Long id){
+//        return userService.getUserWithCart(id);
+//    }
+    
+    @GetMapping("/cart")
+    public ResponseTemplateVO getUserWithCartbyTK(@RequestParam String taiKhoan){
+        return userService.getUserWithCartbyTK(taiKhoan);
     }
 }

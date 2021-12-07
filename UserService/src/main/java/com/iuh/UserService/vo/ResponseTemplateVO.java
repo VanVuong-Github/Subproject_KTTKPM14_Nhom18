@@ -1,5 +1,7 @@
 package com.iuh.UserService.vo;
 
+import java.util.List;
+
 import com.iuh.UserService.entity.Cart;
 import com.iuh.UserService.entity.User;
 
@@ -12,5 +14,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ResponseTemplateVO {
 	private User user;
-    private Cart cart;
+    private List<Cart> cart;
 }
