@@ -3,18 +3,12 @@ package com.iuh.UserService.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.iuh.UserService.entity.User;
 import com.iuh.UserService.service.UserService;
 import com.iuh.UserService.vo.ResponseTemplateVO;
-
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -35,9 +29,13 @@ public class UserController {
 //    public ResponseTemplateVO getUserWithCart(@PathVariable("id") Long id){
 //        return userService.getUserWithCart(id);
 //    }
-    
-    @GetMapping("/{id}")
-    public ResponseTemplateVO getUserWithCartbyTK(@PathVariable("id") Long id){
-        return userService.getUserWithCartbyId(id);
+
+  //  @GetMapping("/{id}")
+   // public ResponseTemplateVO getUserWithCartbyId(@PathVariable("id") Long id){
+  //      return userService.getUserWithCartbyId(id);
+ //   }
+    @GetMapping("/{taiKhoan}")
+    public ResponseTemplateVO getUserWithCartbyTK(@PathVariable("taiKhoan") String taiKhoan){
+        return userService.getUserWithCartbyTK(taiKhoan);
     }
 }

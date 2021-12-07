@@ -62,5 +62,16 @@ public class UserService {
 		return vo;
 	}
 
+	public ResponseTemplateVO getUserWithCartbyTK(String taiKhoan) {
+		ResponseTemplateVO vo = new ResponseTemplateVO();
+		List<User> users = userRepository.findAll();
+		for (User i : users){
+			if (i.getTaiKhoan().equals(taiKhoan)){
+				return getUserWithCartbyId(i.getUserId());
+			}
+		}
+
+		return vo;
+	}
 
 }
