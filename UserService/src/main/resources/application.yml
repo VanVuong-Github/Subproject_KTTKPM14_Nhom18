@@ -1,0 +1,7 @@
+resilience4j:
+  retry:
+    instances:
+      # Retry object used in RetryingService.basicExample()
+      basic:
+        maxRetryAttempts: 3
+        waitDuration: 10s
