@@ -2,7 +2,7 @@ server:
   port: 8000
 spring:
   application:
-    name: cart-service
+    name: CART-SERVICE
 eureka:
   client:
     register-with-eureka:

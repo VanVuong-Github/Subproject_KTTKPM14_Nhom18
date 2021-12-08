@@ -15,7 +15,7 @@ ratelimiter:
 
 spring:
   application:
-    name: user-service
+    name: USER-SERVICE
 
 
 eureka:

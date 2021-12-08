@@ -27,7 +27,7 @@ public class UserService {
 		return userRepository.save(order);
 	}
 
-	public User findUserById(long id) {
+	public User findUserById(String id) {
 		return userRepository.findById(id).get();
 	}
 
@@ -51,7 +51,7 @@ public class UserService {
 
 	@Retry(name = "basic")
 	@RateLimiter(name="basicExample")
-	public ResponseTemplateVO getUserWithCartbyId(Long id) {
+	public ResponseTemplateVO getUserWithCartbyId(String id) {
 
 		ResponseTemplateVO vo = new ResponseTemplateVO();
 		User user = userRepository.findById(id).get();

@@ -11,8 +11,5 @@
         <module name="APIGateway.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="SpringBootJWT" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>

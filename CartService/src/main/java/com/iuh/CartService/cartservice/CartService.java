@@ -18,7 +18,7 @@ public class CartService {
         return cartRepository.save(cart);
     }
     
-    public Cart findCart(long id){
+    public Cart findCart(String id){
         return cartRepository.findById(id).get();
     }
 
@@ -26,11 +26,11 @@ public class CartService {
         return cartRepository.findAll();
     }
 
-    public List<Cart> findByUserId(Long id){
+    public List<Cart> findByUserId(String id){
         List<Cart> carts = cartRepository.findAll();
         List<Cart> kq =new ArrayList<>();
         for (Cart i : carts){
-            if (i.getUserId()==id){
+            if (i.getUserId().equals(id)){
                 kq.add(i);
             }
         }

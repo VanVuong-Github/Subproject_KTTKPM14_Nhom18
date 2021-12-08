@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.*;
 
 import com.iuh.CartService.cartservice.CartService;
 import com.iuh.CartService.entity.Cart;
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/cart")
 public class CartController {
+
 	@Autowired
 	private CartService cartService;
 	
@@ -20,7 +22,7 @@ public class CartController {
     }
 
     @GetMapping("/{id}")
-    Cart findCart(@PathVariable("id") Long id){
+    Cart findCart(@PathVariable("id") String id){
         return cartService.findCart(id);
     }
 
@@ -30,7 +32,7 @@ public class CartController {
     }
 
     @GetMapping("/user/{id}")
-    List<Cart> findAllCarts(@PathVariable("id") Long id){
+    List<Cart> findAllCarts(@PathVariable("id") String id){
         return cartService.findByUserId(id);
     }
 }

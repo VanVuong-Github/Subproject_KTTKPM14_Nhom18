@@ -1,24 +1,18 @@
 package com.iuh.CartService.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "Cart")
 public class Cart {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long cartId;
+	private String cartId;
 
 	private String cartName;
 
@@ -26,5 +20,5 @@ public class Cart {
 	
 	private String thongTin;
 
-	private Long userId;
+	private String userId;
 }

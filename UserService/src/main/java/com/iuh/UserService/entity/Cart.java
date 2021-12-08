@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Cart {
-	private Long cartId;
+	private String cartId;
 
 	private String cartName;
 
@@ -16,5 +16,5 @@ public class Cart {
 	
 	private String thongTin;
 
-	private Long userId;
+	private String userId;
 }

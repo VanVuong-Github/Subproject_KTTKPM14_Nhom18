@@ -10,7 +10,7 @@ import com.iuh.UserService.service.UserService;
 import com.iuh.UserService.vo.ResponseTemplateVO;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 	@Autowired
     private UserService userService ;
