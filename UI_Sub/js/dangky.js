@@ -10,7 +10,7 @@ function dangKy(){
        
         $.ajax({
           type: 'POST',
-          url: auth + endpoint.dangKy,
+          url: host + endpoint.dangKy,
           data: JSON.stringify({
             "username":username,
             "password":password
@@ -23,7 +23,7 @@ function dangKy(){
             
               $.ajax({
                 type: 'POST',
-                url: user + endpoint.addUser,
+                url: host + endpoint.user + 'saveUser',
 
                 data: JSON.stringify({
                   "taiKhoan":username,

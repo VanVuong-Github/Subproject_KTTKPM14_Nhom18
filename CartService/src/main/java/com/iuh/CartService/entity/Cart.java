@@ -6,11 +6,13 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
+
 @Document
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cart {
+public class Cart implements Serializable {
 	@Id
 	private String cartId;
 
