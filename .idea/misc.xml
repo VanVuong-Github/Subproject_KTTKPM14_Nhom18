@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/APIGateway" />
+    <file type="web" url="file://$PROJECT_DIR$/CartService" />
+    <file type="web" url="file://$PROJECT_DIR$/CloudConfigServer" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringBootJWT" />
+    <file type="web" url="file://$PROJECT_DIR$/UserService" />
+  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="15" project-jdk-type="JavaSDK" />
 </project>
