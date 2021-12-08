@@ -1,0 +1,30 @@
+resilience4j:
+  retry:
+    instances:
+      # Retry object used in RetryingService.basicExample()
+      basic:
+        maxRetryAttempts: 3
+        waitDuration: 10s
+ratelimiter:
+  instances:
+    # RateLimiter object used in RateLimitingService.basicExample()
+    basicExample:
+      limitForPeriod: 1
+      limitRefreshPeriod: 1s
+      timeoutDuration: 1s
+
+spring:
+  application:
+    name: user-service
+
+
+eureka:
+  client:
+    register-with-eureka:
+      value: true
+    fetch-registry:
+      value: true;
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    instance:
+      hostname: localhost
