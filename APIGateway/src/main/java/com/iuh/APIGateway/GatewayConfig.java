@@ -18,5 +18,4 @@ public class GatewayConfig {
                 .route("cart", r -> r.path("/cart/**").filters(f -> f.filter(filter)).uri("lb://CART-SERVICE"))
                 .route("users", r -> r.path("/users/**").filters(f -> f.filter(filter)).uri("lb://USER-SERVICE")).build();
     }
-
 }

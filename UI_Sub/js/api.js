@@ -1,9 +1,8 @@
 const endpoint = {
     dangNhap: "/auth/login",
     dangKy:"/auth/register",
-    addUser:"/user/",
-    addCart:"/cart/"
+    user:"/users/",
+    cart:"/cart/"
 }
-const auth = "http://localhost:9091";
-const user = "http://localhost:9091";
-const cart = "http://localhost:9091";
+const host = "http://localhost:9091";
+

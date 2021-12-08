@@ -27,6 +27,11 @@ dependencies {
 	// https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
 	implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
 
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '2.6.1'
+
+
+
 }
 
 dependencyManagement {

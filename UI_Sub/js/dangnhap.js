@@ -4,7 +4,7 @@ function dangNhap(){
     var password = $('input[name="password"]').val()
     $.ajax({
         type: 'POST',
-        url: "http://localhost:9090/auth/login",
+        url: host +endpoint.dangNhap,
         data: JSON.stringify({
           "username":username,
           "password":password       
@@ -14,9 +14,7 @@ function dangNhap(){
         },
         success: function(data) {
             localStorage.clear();
-            console.log( data.accessToken)
-            localStorage.token = "JWT "+ data.accessToken;
-            console.log("JWT "+ data.accessToken);
+            localStorage.token = data.accessToken;
             localStorage.username = data.username;
             window.location.href = "/";
         },

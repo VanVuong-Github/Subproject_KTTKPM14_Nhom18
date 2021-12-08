@@ -12,7 +12,12 @@ function getALL() {
     {
       $.ajax({
         type: "GET",
-        url: "http://localhost:8001/user/"+localStorage.username,
+        url: host+endpoint.user+localStorage.username,
+        beforeSend: function(xhr) {
+          if (localStorage.token) {
+            xhr.setRequestHeader('Authorization', localStorage.token);
+          }
+        },
         success: function (data) {
           localStorage.id = data.user.userId;
           var username = document.getElementById("username");
@@ -72,13 +77,18 @@ function addCart(){
 
     $.ajax({
       type: 'POST',
-      url: cart + endpoint.addCart,
+      url: host + endpoint.cart,
       data: JSON.stringify({
         "cartName":cartName,
         "soLuong":soLuong,
         "thongTin":thongTin,
         "userId":userId
         }),
+        beforeSend: function(xhr) {
+          if (localStorage.token) {
+            xhr.setRequestHeader('Authorization', localStorage.token);
+          }
+        },
       error: function(e) {
         console.log(e);
         document.getElementById("btnAdd").removeAttribute("disabled");

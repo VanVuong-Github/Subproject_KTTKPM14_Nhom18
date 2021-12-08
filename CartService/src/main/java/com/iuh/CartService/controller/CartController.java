@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import com.iuh.CartService.cartservice.CartService;
 import com.iuh.CartService.entity.Cart;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/cart")
 public class CartController {
