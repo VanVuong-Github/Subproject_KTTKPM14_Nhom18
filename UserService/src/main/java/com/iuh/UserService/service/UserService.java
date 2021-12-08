@@ -5,6 +5,8 @@ import java.util.List;
 
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -22,15 +24,16 @@ public class UserService {
 
 	@Autowired
 	private RestTemplate restTemplate;
-
+	@CachePut(value = "redis_user")
 	public User saveUser(User order) {
 		return userRepository.save(order);
 	}
-
+	@Cacheable(value = "redis_user")
 	public User findUserById(String id) {
 		return userRepository.findById(id).get();
 	}
 
+	@Cacheable(value = "redis_user")
 	public List<User> findAllUsers() {
 		return userRepository.findAll();
 	}
@@ -51,10 +54,10 @@ public class UserService {
 
 	@Retry(name = "basic")
 	@RateLimiter(name="basicExample")
+	@Cacheable(value="redis_user",key = "#id")
 	public ResponseTemplateVO getUserWithCartbyId(String id) {
-
 		ResponseTemplateVO vo = new ResponseTemplateVO();
-		User user = userRepository.findById(id).get();
+		User user = findUserById(id);
 		List<Cart> carts = new ArrayList<>();
 		vo.setUser(user);
 		List<Cart> listcart =  restTemplate.getForObject("http://localhost:8000/cart/user/" + user.getUserId(), List.class);
@@ -62,6 +65,7 @@ public class UserService {
 		return vo;
 	}
 
+//	@Cacheable(value="redis_user")
 	public ResponseTemplateVO getUserWithCartbyTK(String taiKhoan) {
 		ResponseTemplateVO vo = new ResponseTemplateVO();
 		List<User> users = userRepository.findAll();

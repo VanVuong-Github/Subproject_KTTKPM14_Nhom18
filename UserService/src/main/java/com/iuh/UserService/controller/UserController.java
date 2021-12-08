@@ -22,7 +22,6 @@ public class UserController {
     }
 
     @GetMapping("/")
-    @Cacheable(value = "user")
     List<User> findAllUsers(){
         return userService.findAllUsers();
     }
@@ -37,7 +36,6 @@ public class UserController {
   //      return userService.getUserWithCartbyId(id);
  //   }
     @GetMapping("/{taiKhoan}")
-    @Cacheable(value="user",key = "#taiKhoan")
     public ResponseTemplateVO getUserWithCartbyTK(@PathVariable("taiKhoan") String taiKhoan){
         return userService.getUserWithCartbyTK(taiKhoan);
     }

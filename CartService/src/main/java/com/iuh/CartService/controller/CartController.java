@@ -22,13 +22,11 @@ public class CartController {
     }
 
     @GetMapping("/{id}")
-    @Cacheable(value = "cart",key = "#id")
     Cart findCart(@PathVariable("id") String id){
         return cartService.findCart(id);
     }
 
 	@GetMapping("/")
-    @Cacheable(value = "cart")
     List<Cart> findAllCarts(){
     	return cartService.findAllCarts();
     }
@@ -39,7 +37,6 @@ public class CartController {
      * @return
      */
     @GetMapping("/user/{id}")
-    @Cacheable(value = "cart",key = "#id")
     List<Cart> findAllCarts(@PathVariable("id") String id){
         return cartService.findByUserId(id);
     }
