@@ -16,7 +16,7 @@ public class CartService {
 	@Autowired
 	private CartRepository cartRepository;
 
-	@CachePut(value = "redis_cart",key = "#cart.userId")
+	@CachePut(value = "redis_cart")
 	public Cart saveCart(Cart cart) {
         return cartRepository.save(cart);
     }
