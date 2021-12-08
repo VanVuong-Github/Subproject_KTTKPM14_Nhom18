@@ -3,6 +3,7 @@ package com.iuh.CartService.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import com.iuh.CartService.cartservice.CartService;
@@ -21,16 +22,24 @@ public class CartController {
     }
 
     @GetMapping("/{id}")
+    @Cacheable(value = "cart",key = "#id")
     Cart findCart(@PathVariable("id") String id){
         return cartService.findCart(id);
     }
 
 	@GetMapping("/")
+    @Cacheable(value = "cart")
     List<Cart> findAllCarts(){
     	return cartService.findAllCarts();
     }
 
+    /**
+     * find all carts with userId
+     * @param id
+     * @return
+     */
     @GetMapping("/user/{id}")
+    @Cacheable(value = "cart",key = "#id")
     List<Cart> findAllCarts(@PathVariable("id") String id){
         return cartService.findByUserId(id);
     }
