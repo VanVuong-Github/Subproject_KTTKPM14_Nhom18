@@ -19,6 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -36,6 +37,11 @@ public class AuthController {
 
     @Autowired
     private JwtUtils jwtUtils;
+
+    @GetMapping("/{id}")
+    public Account getAccountByUsername(@PathVariable("id") String username){
+        return accountRepository.findByUsername(username).get();
+    }
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody SignupRequest signUpRequest) {

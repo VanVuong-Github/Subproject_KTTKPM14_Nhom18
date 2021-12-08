@@ -23,14 +23,11 @@ public class JwtResponse implements Serializable {
     @JsonUnwrapped
     private Account account;
 
-    private String tokenType;
-
     private String accessToken;
 
     public JwtResponse(String accessToken, Account account) {
         this.accessToken = accessToken;
         this.account = account;
-        tokenType = "Bearer";
     }
 
 }

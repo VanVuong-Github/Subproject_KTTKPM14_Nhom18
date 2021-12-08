@@ -1,0 +1,25 @@
+.error {
+    color: #f00;
+    font-size: 13px;
+  }
+  .content {
+    margin-top: 5%;
+  }
+  .textCenter {
+    text-align: center;
+  }
+  .table-responsive {
+    max-height: 300px;
+  }
+  .avatar {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: top center;
+    border-radius: 50%;
+  }
+  .logo {
+    height: auto;
+    width: 80px;
+  }
+  
