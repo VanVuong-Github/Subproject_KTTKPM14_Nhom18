@@ -9,11 +9,11 @@ spring:
     gateway:
       routes:
         - id: USER-SERVICE
-          uri: lb://USER-SERVICE
+          uri:  lb://USER-SERVICE
           predicates:
             - Path=/users/**
         - id: CART-SERVICE
-          uri: lb://CART-SERVICE
+          uri:  lb://CART-SERVICE
           predicates:
             - Path=/cart/**
         - id: AUTH-SERVICE
@@ -23,7 +23,7 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOriginPatterns: "http://localhost:3000"
+            allowedOriginPatterns: "http://ec2-3-0-52-46.ap-southeast-1.compute.amazonaws.com:3000"
             allowedMethods: "*"
             allowedHeaders: "*"
 
@@ -34,6 +34,6 @@ eureka:
     fetch-registry:
       value: true;
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://ec2-54-169-129-213.ap-southeast-1.compute.amazonaws.com:8761/eureka
     instance:
       hostname: localhost
