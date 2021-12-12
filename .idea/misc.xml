@@ -5,6 +5,7 @@
     <file type="web" url="file://$PROJECT_DIR$/APIGateway" />
     <file type="web" url="file://$PROJECT_DIR$/CartService" />
     <file type="web" url="file://$PROJECT_DIR$/CloudConfigServer" />
+    <file type="web" url="file://$PROJECT_DIR$/EurekaServer" />
     <file type="web" url="file://$PROJECT_DIR$/SpringBootJWT" />
     <file type="web" url="file://$PROJECT_DIR$/UserService" />
   </component>

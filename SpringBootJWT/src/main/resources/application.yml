@@ -5,13 +5,10 @@ spring:
   application:
     name: AUTH-SERVICE
 
-eureka:
-  client:
-    register-with-eureka:
-      value: true
-    fetch-registry:
-      value: true;
-    service-url:
-      defaultZone: http://ec2-54-169-129-213.ap-southeast-1.compute.amazonaws.com:8761/eureka
-    instance:
-      hostname: localhost
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/s2taaa/eureka-config-server
+          default-label: main
+        bootstrap: false
